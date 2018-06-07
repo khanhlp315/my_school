@@ -46,7 +46,7 @@ class LoginState extends State<LoginView> implements LoginViewContract{
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               new Image(
-                image: new AssetImage("assets/logo.png"),
+                image: new AssetImage("assets/images/logo.png"),
               ),
               new Column(
                 children: <Widget>[ new Padding(

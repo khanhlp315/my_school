@@ -46,7 +46,7 @@ class SplashState extends State <SplashView> implements SplashViewContract{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Image(
-                image: new AssetImage("assets/logo.png"),
+                image: new AssetImage("assets/images/logo.png"),
               ),
               new Column(
                   children: <Widget>[
