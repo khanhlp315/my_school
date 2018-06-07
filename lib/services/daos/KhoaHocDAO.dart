@@ -15,7 +15,7 @@ class KhoaHocDAO {
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new KhoaHocDTO(listMap[0]['MaKhoaHoc'], listMap[0]['NamHoc'], listMap[0]['HocKi']));
+      list.add(new KhoaHocDTO(listMap[i]['MaKhoaHoc'], listMap[i]['NamHoc'], listMap[i]['HocKi']));
     }
 
     DataAccessHelper.closeDatabase();

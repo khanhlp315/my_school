@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_school/presentation/Schedule/SchedulePanel.dart';
 import 'package:my_school/presentation/home/home_view.dart';
 import 'package:my_school/presentation/login/login_view.dart';
 import 'package:my_school/presentation/splash/splash_view.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "My School",
-      home: new LoginPage(),
+      home: new SchedulePanel(),
       onGenerateRoute: Router.appRouter.generator,
     );
   }

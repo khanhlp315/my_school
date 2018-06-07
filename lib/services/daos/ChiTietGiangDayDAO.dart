@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:my_school/models/ChiTietGiangDayDTO.dart';
+import 'package:my_school/models/schedule_item.dart';
 import 'package:my_school/services/daos/DataAccessHelper.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ChiTietGiangDayDAO {
-  Future<List<ChiTietGiangDayDTO>> select() async {
+  Future<List<ChiTietGiangDayDTO>> selectAllChiTietGiangDay() async {
     List<ChiTietGiangDayDTO> list = new List<ChiTietGiangDayDTO>();
 
     Database database = await DataAccessHelper.connectDatabase();
@@ -15,12 +16,28 @@ class ChiTietGiangDayDAO {
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new ChiTietGiangDayDTO(listMap[0]['MaChiTietGiangDay'], listMap[0]['MaGV'], listMap[0]['MaLop'],listMap[0]['MaMon'],listMap[0]['MaKhoaHoc'],listMap[0]['Thu'],listMap[0]['Tiet']));
+      list.add(new ChiTietGiangDayDTO(listMap[i]['MaChiTietGiangDay'], listMap[i]['MaGV'], listMap[i]['MaLop'],listMap[i]['MaMon'],listMap[i]['MaKhoaHoc'],listMap[i]['Thu'],listMap[i]['Tiet']));
     }
 
     DataAccessHelper.closeDatabase();
 
     print(list[1].MaGV);
+    return list;
+  }
+
+  Future<List<ScheduleItem>> selectAllScheduleByMaGV(String maGV) async{
+    List<ScheduleItem> list = new List<ScheduleItem>();
+    Database database = await DataAccessHelper.connectDatabase();
+    List<Map> listMap = await database.rawQuery('SELECT MaChiTietGiangDay, Thu, Tiet, TenMon, TenLop FROM CHITIETGIANGDAY, MONHOC, LOP WHERE MAGV = GV001 and CHITIETGIANGDAY.MaMon = MONHOC.MaMon and CHITIETGIANGDAY.MaLop = LOP.MaLop');
+    print("Danh sach Chi Tiet Giang Day ");
+    print(listMap);
+
+    for(int i  = 0 ; i < listMap.length ; i++)
+    {
+      list.add(new ScheduleItem(listMap[i]['MaChiTietGiangDay'], listMap[i]['Thu'], listMap[i]['Tiet'],listMap[i]['TenMon'],listMap[i]['TenLop']));
+    }
+
+    DataAccessHelper.closeDatabase();
     return list;
   }
 
