@@ -1,3 +1,4 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:my_school/presentation/login/login_presenter.dart';
 import 'package:my_school/presentation/login/login_view_contract.dart';
@@ -10,15 +11,8 @@ class LoginPage extends StatelessWidget{
     return new Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: null,
-        body: new Stack(
-          children: <Widget>[
-            new Container(
-                color: new Color(0xFFF2F4FA)),
-            new Container(
-              child: new LoginView(),
-            )
-          ],
-        ));
+        body: new LoginView()
+    );
   }
 }
 
@@ -193,7 +187,8 @@ class LoginState extends State<LoginView> implements LoginViewContract{
 
   @override
   void navigateToLoadingView() {
-    // TODO: implement navigateToLoadingView
+    Router.appRouter.navigateTo(context, RouteNames.SPLASH_PAGE,
+        replace: false, transition: TransitionType.fadeIn);
   }
 
   @override
