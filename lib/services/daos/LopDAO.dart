@@ -15,7 +15,7 @@ class LopDAO {
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new LopDTO(listMap[0]['MaLop'], listMap[0]['MaGVCN'], listMap[0]['TenLop'],listMap[0]['PhongHoc']));
+      list.add(new LopDTO(listMap[i]['MaLop'], listMap[i]['MaGVCN'], listMap[i]['TenLop'],listMap[i]['PhongHoc']));
     }
 
     DataAccessHelper.closeDatabase();

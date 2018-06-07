@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:my_school/presentation/Schedule/SchedulePanel.dart';
 import 'package:my_school/presentation/login/login_view.dart';
 import 'package:my_school/utils/route_names.dart';
 import 'package:fluro/fluro.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "My School",
-      home: new LoginPage(),
+      home: new SchedulePanel(),
       onGenerateRoute: Router.appRouter.generator,
     );
   }

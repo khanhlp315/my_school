@@ -15,7 +15,7 @@ class MonHocDAO {
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new MonHocDTO(listMap[0]['MaMon'], listMap[0]['TenMon'], listMap[0]['HeSo']));
+      list.add(new MonHocDTO(listMap[i]['MaMon'], listMap[i]['TenMon'], listMap[i]['HeSo']));
     }
 
     DataAccessHelper.closeDatabase();

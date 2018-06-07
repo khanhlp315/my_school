@@ -15,7 +15,7 @@ class TaiKhoanDAO {
     
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-        list.add(new TaiKhoanDTO(listMap[0]['MaTaiKhoan'], listMap[0]['TenTaiKhoan'], listMap[0]['MatKhau'], listMap[0]['MaGV']));
+        list.add(new TaiKhoanDTO(listMap[i]['MaTaiKhoan'], listMap[i]['TenTaiKhoan'], listMap[i]['MatKhau'], listMap[i]['MaGV']));
     }
     
     DataAccessHelper.closeDatabase();

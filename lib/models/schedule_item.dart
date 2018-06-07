@@ -1,9 +1,9 @@
-class ScheduleItemDTO{
+class ScheduleItem{
   String MaChiTietGiangDay;
-  String Thu;
-  String Tiet;
+  int Thu;
+  int Tiet;
   String TenMon;
   String TenLop;
 
-  ScheduleItemDTO(this.MaChiTietGiangDay,this.Thu,this.Tiet,this.TenLop,this.TenMon);
+  ScheduleItem(this.MaChiTietGiangDay,this.Thu,this.Tiet,this.TenLop,this.TenMon);
 }

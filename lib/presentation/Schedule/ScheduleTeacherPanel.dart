@@ -39,7 +39,7 @@ class ScheduleTeacherState extends State<ScheduleTeacherPanel> {
                   padding: new EdgeInsets.only(left: 10.0),),
               new Padding(
                   child: new Text(
-                      _selectTeacher == null?"Bấm để chọn giáo viên":_selectTeacher.MaGV ,
+                      _selectTeacher == null?"Bấm để chọn giáo viên":_selectTeacher.TenGV,
                       style: new TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
