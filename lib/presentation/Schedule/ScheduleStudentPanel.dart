@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_school/models/LopDTO.dart';
 import 'package:my_school/models/schedule_item.dart';
+import 'package:my_school/services/daos/LopDAO.dart';
 
 class ScheduleStudentPanel extends StatefulWidget {
 
@@ -18,10 +19,22 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
   LopDTO _selectTeacher;
 
   List<ScheduleItem> _scheduleItems;
+  List<LopDTO> _listClass;
+  LopDTO _selectedClass;
 
   Map<int, List<ScheduleItem>> _map;
 
+  initData()
+  async {
+    print("hello");
+    LopDAO lopDAO = new LopDAO();
+    _listClass = await lopDAO.select();
+    print(_listClass);
+  }
+
   ScheduleStudentState(){
+    initData();
+
     _scheduleItems = new List<ScheduleItem>();
     _scheduleItems.add(new ScheduleItem("CTGD001", 2, 1, "12A1", "Toán"));
     _scheduleItems.add(new ScheduleItem("CTGD001", 2, 2, "12A1", "Toán"));
@@ -120,6 +133,8 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
+
     return new Container(
         color: Colors.grey[200],
         child: new ListView.builder(
@@ -128,33 +143,19 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
               return new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  new Column(
-                    children: <Widget>[
-                      new Padding(
-                        child: new Text(
-                          _selectTeacher == null?"Chưa chọn lớp":_selectTeacher.MaLop ,
-                          style: new TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0
-
-                          ),),
-                        padding: new EdgeInsets.only(left: 10.0),),
-                      new Padding(
-                        child: new Text(
-                          _selectTeacher == null?"Bấm để chọn lớp":_selectTeacher.TenLop,
-                          style: new TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25.0
-                          ),),
-                        padding: new EdgeInsets.only(left: 10.0),),
-                    ],
-                  ),
-                  new FlatButton(
-                    onPressed: null,
-                    child: new Icon(Icons.arrow_forward_ios) ,),
-                  
+                  _listClass != null?new DropdownButton(
+                    items: _listClass.map((LopDTO lop){
+                      return new DropdownMenuItem<LopDTO>(child: new Text(lop.TenLop), value: lop,);
+                    }).toList(),
+                    value: _selectedClass,
+                    onChanged:(value)
+                    {
+                      print(value);
+                      setState(() {
+                        _selectedClass = value;
+                      });
+                    },
+                  ): new Container()
                 ],
               );
             }
@@ -166,4 +167,5 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
         )
     );
   }
+
 }

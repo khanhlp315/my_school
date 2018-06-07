@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c57aeca2-f2b1-40b6-baac-9ecc43f055c1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/home/home_presenter.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/home/home_view.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/home/home_view_contract.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/splash/splash_presenter.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/splash/splash_view.dart" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/presentation/splash/splash_view_contract.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" afterPath="$PROJECT_DIR$/lib/main.dart" />
       <change beforePath="$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart" afterPath="$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart" />
       <change beforePath="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart" afterPath="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/login/login_view.dart" afterPath="$PROJECT_DIR$/lib/presentation/login/login_view.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/route_names.dart" afterPath="$PROJECT_DIR$/lib/utils/route_names.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart" afterPath="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +19,8 @@
       <file leaf-file-name="SchedulePanel.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+            <state relative-caret-position="173">
+              <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -49,8 +41,8 @@
       <file leaf-file-name="ScheduleTeacherPanel.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state relative-caret-position="152">
+              <caret line="141" column="99" lean-forward="false" selection-start-line="141" selection-start-column="99" selection-end-line="141" selection-end-column="99" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -61,13 +53,12 @@
       <file leaf-file-name="ScheduleStudentPanel.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="156" column="18" lean-forward="false" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
+            <state relative-caret-position="-722">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#2865#3443#0" expanded="false" />
-                <element signature="e#4079#5097#0" expanded="false" />
-                <element signature="e#5131#5233#0" expanded="false" />
+                <element signature="e#1680#3940#0" expanded="false" />
+                <element signature="e#3133#3711#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -140,10 +131,15 @@
       <find>MonHocDTO</find>
       <find>padding</find>
       <find>foreach</find>
+      <find>dropdown</find>
+      <find>LopDTO</find>
+      <find>map</find>
+      <find>_listClass</find>
     </findStrings>
     <replaceStrings>
       <replace>Sch</replace>
       <replace>ScheduleItemDTO</replace>
+      <replace>GiaoVienDTO</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +169,6 @@
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/presentation/Schudule/SchedulePanel.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart" />
         <option value="$PROJECT_DIR$/lib/models/Schedule_itemDTO.dart" />
         <option value="$PROJECT_DIR$/lib/services/daos/Schedule_itemDAO.dart" />
         <option value="$PROJECT_DIR$/lib/services/daos/GiaoVienDAO.dart" />
@@ -183,6 +178,7 @@
         <option value="$PROJECT_DIR$/lib/services/daos/TaiKhoanDAO.dart" />
         <option value="$PROJECT_DIR$/lib/services/daos/ChiTietGiangDayDAO.dart" />
         <option value="$PROJECT_DIR$/lib/models/schedule_item.dart" />
+        <option value="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart" />
         <option value="$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart" />
         <option value="$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart" />
       </list>
@@ -197,7 +193,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="15" />
     <option name="y" value="30" />
     <option name="width" value="1890" />
@@ -425,7 +421,7 @@
     <option name="totallyTimeSpent" value="15994000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -444,7 +440,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="95" y="95" width="1176" height="538" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39967105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4473684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -507,22 +503,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart</url>
-          <line>25</line>
+          <line>38</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -896,16 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/presentation/login/login_view.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-80">
@@ -916,23 +894,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleTeacherPanel.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        <state relative-caret-position="152">
+          <caret line="141" column="99" lean-forward="false" selection-start-line="141" selection-start-column="99" selection-end-line="141" selection-end-column="99" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart">
+    <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/SchedulePanel.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="156" column="18" lean-forward="false" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
+        <state relative-caret-position="173">
+          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#2865#3443#0" expanded="false" />
-            <element signature="e#4079#5097#0" expanded="false" />
-            <element signature="e#5131#5233#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/flutter/packages/flutter/lib/src/rendering/sliver_multi_box_adaptor.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="214" column="15" lean-forward="false" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/presentation/Schedule/ScheduleStudentPanel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-722">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#1680#3940#0" expanded="false" />
+            <element signature="e#3133#3711#0" expanded="false" />
           </folding>
         </state>
       </provider>

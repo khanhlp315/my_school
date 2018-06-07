@@ -21,7 +21,6 @@ class ScheduleState extends State<SchedulePanel>  with SingleTickerProviderState
 
 
   ScheduleState(){
-
   }
 
   @override
@@ -62,13 +61,8 @@ class ScheduleState extends State<SchedulePanel>  with SingleTickerProviderState
       body: new TabBarView(
           controller: tabController,
           children: <Widget>[
-            new ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-            return ;
-          },
-          itemCount: 1,
-           ),
-    new ScheduleStudentPanel(),
+            new ScheduleTeacherPanel(),
+            new ScheduleStudentPanel(),
     ]),
     );
   }
