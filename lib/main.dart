@@ -25,13 +25,11 @@ Future initDb()async {
   print(path);
 
   File db = new File(path);
-  if (!await db.exists()) {
-    db.create();
-    ByteData data = await rootBundle.load(join("assets", "db/qlhs.db"));
-    List<int> bytes = data.buffer.asUint8List(
-        data.offsetInBytes, data.lengthInBytes);
-    await new File(path).writeAsBytes(bytes);
-  }
+  db.create();
+  ByteData data = await rootBundle.load(join("assets", "qlhs.db"));
+  List<int> bytes = data.buffer.asUint8List(
+      data.offsetInBytes, data.lengthInBytes);
+  await new File(path).writeAsBytes(bytes);
 }
 
 class MyApp extends StatelessWidget{

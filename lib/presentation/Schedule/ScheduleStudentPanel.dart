@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_school/models/LopDTO.dart';
 import 'package:my_school/models/schedule_item.dart';
+import 'package:my_school/services/daos/ChiTietGiangDayDAO.dart';
 import 'package:my_school/services/daos/LopDAO.dart';
 
 class ScheduleStudentPanel extends StatefulWidget {
@@ -29,6 +30,9 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
     print("hello");
     LopDAO lopDAO = new LopDAO();
     _listClass = await lopDAO.select();
+    setState(() {
+
+    });
     print(_listClass);
   }
 
@@ -36,27 +40,12 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
     initData();
 
     _scheduleItems = new List<ScheduleItem>();
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 1, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 2, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 3, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD002", 3, 2, "12A2", "Văn"));
-    _scheduleItems.add(new ScheduleItem("CTGD003", 4, 3, "12A3", "Anh"));
-    _scheduleItems.add(new ScheduleItem("CTGD004", 5, 4, "12A4", "Lý"));
+
     _map = new Map<int, List<ScheduleItem>>();
-    _map.clear();
-    _scheduleItems.forEach((schedule){
-      if(_map.containsKey(schedule.Thu)){
-        _map[schedule.Thu].add(schedule);
-      }
-      else {
-        _map[schedule.Thu] = new List<ScheduleItem>();
-        _map[schedule.Thu].add(schedule);
-      }
-    });
+
   }
 
   Widget _buildItem(int thu){
-    print("1");
     List<Widget> tiet = new List<Widget>();
 
     if(!_map.containsKey(thu) || _map[thu].length == 0){
@@ -151,7 +140,32 @@ class ScheduleStudentState extends State<ScheduleStudentPanel> {
                     onChanged:(value)
                     {
                       print(value);
-                      setState(() {
+                      setState(()  {
+                        if(value == null){
+                          _scheduleItems.clear();
+                          _map.clear();
+                        }
+                        else {
+                          ChiTietGiangDayDAO chitiet = new ChiTietGiangDayDAO();
+                          chitiet.selectAllScheduleByMaLop(value.MaLop).then((scheduleItems){
+                            setState(() {
+                              print("Hello");
+                              _scheduleItems.clear();
+                              _map.clear();
+                              _scheduleItems = scheduleItems;
+                              _scheduleItems.forEach((schedule){
+                                if(_map.containsKey(schedule.Thu)){
+                                  _map[schedule.Thu].add(schedule);
+                                }
+                                else {
+                                  _map[schedule.Thu] = new List<ScheduleItem>();
+                                  _map[schedule.Thu].add(schedule);
+                                }
+                              });
+                            });
+                          });
+
+                        }
                         _selectedClass = value;
                       });
                     },

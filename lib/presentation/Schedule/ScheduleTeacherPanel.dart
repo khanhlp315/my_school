@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_school/models/GiaoVienDTO.dart';
 import 'package:my_school/models/schedule_item.dart';
+import 'package:my_school/services/daos/ChiTietGiangDayDAO.dart';
+import 'package:my_school/services/daos/GiaoVienDAO.dart';
 
 class ScheduleTeacherPanel extends StatefulWidget {
 
@@ -21,34 +23,22 @@ class ScheduleTeacherState extends State<ScheduleTeacherPanel> {
 
   Map<int, List<ScheduleItem>> _map;
 
+  initData()
+  async {
+    print("hello");
+    GiaoVienDAO gv = new GiaoVienDAO();
+    _listTeacher = await gv.select();
+    setState(() {
+
+    });
+  }
+
   ScheduleTeacherState(){
-    _listTeacher = new List<GiaoVienDTO>();
-    _listTeacher.add(new GiaoVienDTO("GV001", "Le dang khoi", "10000", "11"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Khoi", "11A2", "E2.2"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Khanh", "11A3", "E2.2"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Khoi 1", "11A5", "E2.2"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Khoi 2", "11A6", "E2.2"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Khanh 3", "11A7", "E2.2"));
-    _listTeacher.add(new GiaoVienDTO("ML001", "Phong", "11A8", "E2.2"));
+    initData();
 
     _scheduleItems = new List<ScheduleItem>();
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 1, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 2, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD001", 2, 3, "12A1", "Toán"));
-    _scheduleItems.add(new ScheduleItem("CTGD002", 3, 2, "12A2", "Văn"));
-    _scheduleItems.add(new ScheduleItem("CTGD003", 4, 3, "12A3", "Anh"));
-    _scheduleItems.add(new ScheduleItem("CTGD004", 5, 4, "12A4", "Lý"));
     _map = new Map<int, List<ScheduleItem>>();
-    _map.clear();
-    _scheduleItems.forEach((schedule){
-      if(_map.containsKey(schedule.Thu)){
-        _map[schedule.Thu].add(schedule);
-      }
-      else {
-        _map[schedule.Thu] = new List<ScheduleItem>();
-        _map[schedule.Thu].add(schedule);
-      }
-    });
+
   }
 
   Widget _buildItem(int thu){
@@ -137,7 +127,7 @@ class ScheduleTeacherState extends State<ScheduleTeacherPanel> {
               return new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  new DropdownButton(
+                  _listTeacher == null? new Container(): new DropdownButton(
                     items: _listTeacher.map((GiaoVienDTO gv){
                       return new DropdownMenuItem<GiaoVienDTO>(child: new Text(gv.TenGV), value: gv,);
                     }).toList(),
@@ -145,7 +135,32 @@ class ScheduleTeacherState extends State<ScheduleTeacherPanel> {
                     onChanged:(value)
                     {
                       print(value);
-                      setState(() {
+                      setState(()  {
+                        if(value == null){
+                          _scheduleItems.clear();
+                          _map.clear();
+                        }
+                        else {
+                          ChiTietGiangDayDAO chitiet = new ChiTietGiangDayDAO();
+                          chitiet.selectAllScheduleByMaGV(value.MaGV).then((scheduleItems){
+                            setState(() {
+                              print("Hello");
+                              _scheduleItems.clear();
+                              _map.clear();
+                              _scheduleItems = scheduleItems;
+                              _scheduleItems.forEach((schedule){
+                                if(_map.containsKey(schedule.Thu)){
+                                  _map[schedule.Thu].add(schedule);
+                                }
+                                else {
+                                  _map[schedule.Thu] = new List<ScheduleItem>();
+                                  _map[schedule.Thu].add(schedule);
+                                }
+                              });
+                            });
+                          });
+
+                        }
                         _selectedTeacher = value;
                       });
                     },

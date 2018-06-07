@@ -15,7 +15,7 @@ class GiaoVienDAO {
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new GiaoVienDTO(listMap[i]['MaGV'], listMap[i]['TenGV'], listMap[i]['MucLuong'],listMap[i]['ChucVu']));
+      list.add(new GiaoVienDTO(listMap[i]['MaGV'], listMap[i]['TenGV'], listMap[i]['MucLuong'].toString(),listMap[i]['ChucVu']));
     }
 
     DataAccessHelper.closeDatabase();

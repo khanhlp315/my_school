@@ -28,13 +28,29 @@ class ChiTietGiangDayDAO {
   Future<List<ScheduleItem>> selectAllScheduleByMaGV(String maGV) async{
     List<ScheduleItem> list = new List<ScheduleItem>();
     Database database = await DataAccessHelper.connectDatabase();
-    List<Map> listMap = await database.rawQuery('SELECT MaChiTietGiangDay, Thu, Tiet, TenMon, TenLop FROM CHITIETGIANGDAY, MONHOC, LOP WHERE MAGV = GV001 and CHITIETGIANGDAY.MaMon = MONHOC.MaMon and CHITIETGIANGDAY.MaLop = LOP.MaLop');
+    List<Map> listMap = await database.rawQuery('SELECT MaChiTietGiangDay, Thu, Tiet, TenMon, TenLop FROM CHITIETGIANGDAY, MONHOC, LOP WHERE MAGV = ? and CHITIETGIANGDAY.MaMon = MONHOC.MaMon and CHITIETGIANGDAY.MaLop = LOP.MaLop',[maGV]);
     print("Danh sach Chi Tiet Giang Day ");
     print(listMap);
 
     for(int i  = 0 ; i < listMap.length ; i++)
     {
-      list.add(new ScheduleItem(listMap[i]['MaChiTietGiangDay'], listMap[i]['Thu'], listMap[i]['Tiet'],listMap[i]['TenMon'],listMap[i]['TenLop']));
+      list.add(new ScheduleItem(listMap[i]['MaChiTietGiangDay'], int.parse(listMap[i]['Thu']), int.parse(listMap[i]['Tiet']),listMap[i]['TenMon'],listMap[i]['TenLop']));
+    }
+
+    DataAccessHelper.closeDatabase();
+    return list;
+  }
+
+  Future<List<ScheduleItem>> selectAllScheduleByMaLop (String maLop) async{
+    List<ScheduleItem> list = new List<ScheduleItem>();
+    Database database = await DataAccessHelper.connectDatabase();
+    List<Map> listMap = await database.rawQuery('SELECT MaChiTietGiangDay, Thu, Tiet, TenMon, TenLop FROM CHITIETGIANGDAY, MONHOC, LOP WHERE CHITIETGIANGDAY.MALOP = ? and CHITIETGIANGDAY.MaMon = MONHOC.MaMon and CHITIETGIANGDAY.MaLop = LOP.MaLop',[maLop]);
+    print("Danh sach Chi Tiet Giang Day ");
+    print(listMap);
+
+    for(int i  = 0 ; i < listMap.length ; i++)
+    {
+      list.add(new ScheduleItem(listMap[i]['MaChiTietGiangDay'], int.parse(listMap[i]['Thu']) , int.parse(listMap[i]['Tiet']),listMap[i]['TenMon'],listMap[i]['TenLop']));
     }
 
     DataAccessHelper.closeDatabase();
