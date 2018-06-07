@@ -64,16 +64,11 @@ class ScheduleState extends State<SchedulePanel>  with SingleTickerProviderState
           children: <Widget>[
             new ListView.builder(
             itemBuilder: (BuildContext context, int index) {
-            return new ScheduleTeacherPanel();
+            return ;
           },
           itemCount: 1,
            ),
-          new ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-              return new ScheduleStudentPanel();
-          },
-            itemCount: 1,
-          ),
+    new ScheduleStudentPanel(),
     ]),
     );
   }
