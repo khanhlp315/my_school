@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:my_school/DAO/DataAccessHelper.dart';
-import 'package:my_school/DTO/GiaoVienDTO.dart';
+import 'package:my_school/models/GiaoVienDTO.dart';
+import 'package:my_school/services/daos/DataAccessHelper.dart';
 import 'package:sqflite/sqflite.dart';
 
 class GiaoVienDAO {
